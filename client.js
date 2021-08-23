@@ -13,6 +13,17 @@ const connect = function () {
   conn.on("connect", () => {
     console.log("Connected to server");
     conn.write('Name: SNK');
+    const intId = setInterval(()=>{
+      // conn.write('Move: up');
+      // conn.write('Move: down');
+      // conn.write('Move: right'); //Does not work, why?
+      // conn.write('Move: left');
+    }, 100);
+
+    setTimeout(()=>{
+      clearInterval(intId);
+    },5000)
+
   });
   conn.on('data', (data) => {
     console.log('Server says: ', data);
