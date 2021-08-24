@@ -32,8 +32,6 @@ const connect = function () {
     console.log('Server disconnected');
   });
 
-  console.log("Connecting ...");
-
   return conn;
 };
 
