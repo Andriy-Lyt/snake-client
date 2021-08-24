@@ -14,9 +14,11 @@ const setupInput = function(conn) {
 const handleUserInput = function(key) {
   // console.log("key: ", key);
 
+  //stop the game
   if (key === '\u0003') { //ctrl c
     process.exit();
   }
+  //set direction of the move
   if (key === '\u0077') { // w
     // console.log('w, Move: up'); 
     connection.write('Move: up');
@@ -33,6 +35,15 @@ const handleUserInput = function(key) {
     // console.log('d, Move: right'); 
     connection.write('Move: right');
   }
+  //send text messages
+  if (key === '\u007A') { // z
+    connection.write('Say: You Rock!');
+  }
+  if (key === '\u0078') { // x
+    connection.write("Say: Rock'n'Roll!");
+  }
+
+
 
 }
 
