@@ -1,3 +1,6 @@
+const  { KEY_MAP, IP }  = require('./constants');
+// console.log( KEY_MAP );
+
 let connection;
 
 const setupInput = function(conn) {
@@ -14,39 +17,25 @@ const setupInput = function(conn) {
 const handleUserInput = function(key) {
   // console.log("key: ", key);
 
-  //stop the game
-  if (key === '\u0003') { //ctrl c
-    process.exit();
-  }
   //set direction of the move
-  if (key === '\u0077') { // w
+  if (KEY_MAP[key]) {
+    connection.write(KEY_MAP[key]);
+  }
+
+/*   below is not a "dead code" but the thinking process exploring solution options, and my notes
+if (key === KEY_MAP.MOVE_UP) { // w
     // console.log('w, Move: up'); 
     connection.write('Move: up');
   }
+
   if (key === '\u0061') { // a
     // console.log('a, Move: left'); 
     connection.write('Move: left');
   }
-  if (key === '\u0073') { // s
-    // console.log('s, Move: down'); 
-    connection.write('Move: down');
-  }
-  if (key === '\u0064') { // d
-    // console.log('d, Move: right'); 
-    connection.write('Move: right');
-  }
-  //send text messages
-  if (key === '\u007A') { // z
-    connection.write('Say: You Rock!');
-  }
-  if (key === '\u0078') { // x
-    connection.write("Say: Rock'n'Roll!");
-  }
-
-
-
+ */
 }
 
 module.exports = {
   setupInput
 }
+// console.log(module);
