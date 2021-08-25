@@ -17,22 +17,15 @@ const setupInput = function(conn) {
 const handleUserInput = function(key) {
   // console.log("key: ", key);
 
+  //disconnect
+  if (KEY_MAP[key] == process.exit) {
+    connection.write(KEY_MAP[key]+'()');
+  }
+
   //set direction of the move
   if (KEY_MAP[key]) {
     connection.write(KEY_MAP[key]);
   }
-
-/*   below is not a "dead code" but the thinking process exploring solution options, and my notes
-if (key === KEY_MAP.MOVE_UP) { // w
-    // console.log('w, Move: up'); 
-    connection.write('Move: up');
-  }
-
-  if (key === '\u0061') { // a
-    // console.log('a, Move: left'); 
-    connection.write('Move: left');
-  }
- */
 }
 
 module.exports = {

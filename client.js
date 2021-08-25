@@ -1,7 +1,6 @@
 const net = require("net");
 const { IP, PORT } = require('./constants');
 // console.log(IP, PORT);
-// console.log('test');
 
 // establishes a connection with the game server
 const connect = function () {
@@ -14,7 +13,7 @@ const connect = function () {
   conn.setEncoding("utf8");
 
   conn.on("connect", () => {
-    console.log("Connected to server");
+    console.log('Connected to server.');
     conn.write('Name: SNK');
     const intId = setInterval(()=>{
       // conn.write('Move: up');
