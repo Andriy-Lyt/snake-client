@@ -1,6 +1,5 @@
 const net = require("net");
-const { IP, PORT } = require('./constants');
-// console.log(IP, PORT);
+const { IP, PORT, PLAYER_NAME } = require('./constants');
 
 // establishes a connection with the game server
 const connect = function () {
@@ -14,19 +13,17 @@ const connect = function () {
 
   conn.on("connect", () => {
     console.log('Connected to server.');
-    conn.write('Name: SNK');
-    const intId = setInterval(()=>{
-      // conn.write('Move: up');
-      // conn.write('Move: down');
-      // conn.write('Move: right'); //Does not work, why?
-      // conn.write('Move: left');
-    }, 100);
+    conn.write(`Name: ${PLAYER_NAME}`);
 
-    setTimeout(()=>{
-      clearInterval(intId);
-    },5000)
-
+      //Test sending command:
+      const intId = setInterval(() => {
+        // conn.write('Move: up');
+      }, 100);
+      setTimeout(() => {
+        clearInterval(intId);
+      },5000)
   });
+  
   conn.on('data', (data) => {
     console.log('Server says: ', data);
   });  
@@ -36,7 +33,6 @@ const connect = function () {
 
   return conn;
 };
-
 
 module.exports = {
   connect

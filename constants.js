@@ -1,6 +1,6 @@
 const IP = 'localhost';
 const PORT = 3000;
-// console.log(IP, PORT);
+const PLAYER_NAME = 'Joe';
 
 const KEY_MAP = {
     //stop the game
@@ -12,12 +12,11 @@ const KEY_MAP = {
     '\u0061': 'Move: left',  // a
     '\u0064': 'Move: right', // d
 
-    // //send text messages
+    //send text messages
     '\u007A': 'Say: You Rock!', // z
     '\u0078': "Say: Rock'n'Roll!" // x
 }
 
 module.exports = {
-  IP, PORT, KEY_MAP
+  IP, PORT, KEY_MAP, PLAYER_NAME
 }
-// console.log(module.exports);

@@ -1,11 +1,9 @@
-const  { KEY_MAP, IP }  = require('./constants');
-// console.log( KEY_MAP );
+const  { KEY_MAP }  = require('./constants');
 
 let connection;
 
 const setupInput = function(conn) {
   connection = conn;
-  // console.log(conn);
   const stdin = process.stdin;
   stdin.on('data', handleUserInput );
   stdin.setRawMode(true);
@@ -15,8 +13,6 @@ const setupInput = function(conn) {
 }
 
 const handleUserInput = function(key) {
-  // console.log("key: ", key);
-
   //disconnect
   if (KEY_MAP[key] == process.exit) {
     connection.write(KEY_MAP[key]+'()');
@@ -31,4 +27,3 @@ const handleUserInput = function(key) {
 module.exports = {
   setupInput
 }
-// console.log(module);
