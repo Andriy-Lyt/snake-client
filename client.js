@@ -1,5 +1,5 @@
 const net = require("net");
-const { IP, PORT, PLAYER_NAME } = require('./constants');
+const { IP, PORT } = require('./constants');
 
 // establishes a connection with the game server
 const connect = function () {
@@ -12,8 +12,9 @@ const connect = function () {
   conn.setEncoding("utf8");
 
   conn.on("connect", () => {
+    const {  playerName } = require("./play");  // console.log('playerName in client js: ', playerName);
     console.log('Connected to server.');
-    conn.write(`Name: ${PLAYER_NAME}`);
+    conn.write(`Name: ${playerName ? playerName : "Joe"}`);
 
       //Test sending command:
       const intId = setInterval(() => {

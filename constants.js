@@ -1,6 +1,5 @@
 const IP = 'localhost';
 const PORT = 3000;
-const PLAYER_NAME = 'Joe';
 
 const KEY_MAP = {
     //stop the game
@@ -18,5 +17,5 @@ const KEY_MAP = {
 }
 
 module.exports = {
-  IP, PORT, KEY_MAP, PLAYER_NAME
+  IP, PORT, KEY_MAP
 }

@@ -5,8 +5,11 @@ console.log("Connecting ...");
 
 const conObj =  connect();
 
+const playerName = process.argv[2];  // console.log(playerName+" in play.js");
+
  setupInput(conObj);
 
  module.exports = {
-  conObj
+  conObj, playerName
  }
+
